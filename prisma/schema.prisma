@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Paciente {
+  id       Int    @id @default(autoincrement())
+  nome     String
+  cpf      String @unique
+  telefone String
+}
+
+model Medico {
+  id            Int    @id @default(autoincrement())
+  nome          String
+  crm           String @unique
+  especialidade String
+  telefone      String
+}
